@@ -13,3 +13,15 @@ def greeting(request , username):
     result = {'message' : f'Welcome back {username}' , 'is_admin' : False}
     return JsonResponse(result)
 
+
+
+def search(request):
+    query =  request.GET.get('keyword')
+    result = {"search_results_for": f'{query}', "items_found": 0}
+    if query:
+
+        return JsonResponse(result)
+    else:
+
+        message = "You did not provide a search query."
+
