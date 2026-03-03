@@ -8,6 +8,7 @@ class Profile(models.Model):
     roll  = models.IntegerField()
     marks = models.IntegerField()
     state = models.CharField(max_length=50)
+    commit = models.CharField( max_length=50 , default = 'nothing')
 
     
      
