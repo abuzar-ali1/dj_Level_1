@@ -10,5 +10,7 @@ class Profile(models.Model):
     state = models.CharField(max_length=50)
     commit = models.CharField( max_length=50 , default = 'nothing')
 
+    def __str__(self):
+        return self.name
     
      
