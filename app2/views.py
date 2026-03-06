@@ -12,15 +12,21 @@ def get_all_profiles(request):
     return JsonResponse({ "Profiles" : profile_list})
 
 
-
-
-
 def get_all_hacks(request):
     Hackthons  = list(HackathonIdea.objects.values())
     return JsonResponse({ 'Hackothons' :Hackthons})
 
 
-
 def filtererd_data(request):
     data = list(HackathonIdea.objects.filter(is_free_entry = True).values())
     return JsonResponse({'data' : data})
+
+
+def id_base_data(request):
+    query =  request.GET.get('id')
+    result  = list(HackathonIdea.objects.get('{query}').values())
+    if query:
+        return JsonResponse({'data' : result})
+    else:
+
+        message = "You did not provide a search query."

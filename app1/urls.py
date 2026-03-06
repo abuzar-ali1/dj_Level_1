@@ -6,7 +6,7 @@ urlpatterns = [
     path('home/' , views.home , {"message" : "This is the Home page and This is comming form the passing the data to the Url as  a message from the django project "}),
     path('api/greeting/<username>/' , views.greeting),
     path('api/search/' , views.search),
-    path('about/' , views.about)
+    path('about/' , views.about),
 ]
 
 

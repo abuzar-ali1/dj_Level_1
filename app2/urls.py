@@ -1,10 +1,12 @@
 from django.urls import path
-from app2.views import get_all_profiles , welcome , get_all_hacks , filtererd_data
+from . import views 
 
 urlpatterns = [
-    path('api/profiles/', get_all_profiles),
-    path('' , welcome),
-    path('api/ideas/' , get_all_hacks),
-    path('api/ideas/free/' , filtererd_data)
+    path('api/profiles/', views.get_all_profiles),
+    path('' , views.welcome),
+    path('api/ideas/' , views.get_all_hacks),
+    path('api/ideas/free/' , views.filtererd_data),
+    path('api/ideas/<int:id>/' , views.id_base_data )
+
     # ... your other urls
 ]
