@@ -20,3 +20,11 @@ class HackathonIdea(models.Model):
     core_tech = models.CharField( max_length=100)
     is_free_entry  = models.BooleanField()
     difficulty_level = models.IntegerField()
+
+
+class Teacher(models.Model):
+    name = models.CharField(max_length=50)
+    caste = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    Job_title = models.CharField(max_length=50)
+    ID_NO : models.IntegerField()
