@@ -28,3 +28,12 @@ class Teacher(models.Model):
     address = models.CharField(max_length=50)
     Job_title = models.CharField(max_length=50)
     ID_NO : models.IntegerField()
+
+
+
+
+    # Model for serializers
+class Student(models.Model):
+    name  = models.CharField( max_length=50) 
+    roll = models.IntegerField()
+    city = models.CharField(max_length=50)    
