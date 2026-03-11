@@ -3,6 +3,8 @@ from django.http import HttpResponse , JsonResponse
 from .models import Profile , HackathonIdea , Student
 from .serializers import StudentSerializer
 from rest_framework.renderers import JSONRenderer
+from django.http import 
+import io
 # Create your views here.
 
 def welcome(request):
@@ -49,3 +51,9 @@ def students(request):
     return HttpResponse(json_data , content_type = 'application/json')
     # mosltly we use JsonResponse to return a json
     # return JsonResponse(serilizer.data , safe=False)
+
+
+def student_create(request):
+    if reqest.method  == 'POST':
+        json_data = reqest.body
+        stream = io.BytesIO(json_date)
