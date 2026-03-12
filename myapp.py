@@ -4,9 +4,9 @@ import json
 URL = "http://127.0.0.1:8000/stucreate/"
 
 data = {
-    'name' : 'Abuzar Ali',
-    'roll' : 4578,
-    'city' : 'lahore'
+    'name' : 'Younis Ali',
+    'roll' : 3478,
+    'city' : 'karachi'
 }
 
 
