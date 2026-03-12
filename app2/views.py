@@ -3,7 +3,10 @@ from django.http import HttpResponse , JsonResponse
 from .models import Profile , HackathonIdea , Student
 from .serializers import StudentSerializer
 from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
 import io
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
 
 def welcome(request):
@@ -51,8 +54,18 @@ def students(request):
     # mosltly we use JsonResponse to return a json
     # return JsonResponse(serilizer.data , safe=False)
 
-
+@csrf_exempt
 def student_create(request):
-    if reqest.method  == 'POST':
-        json_data = reqest.body
-        stream = io.BytesIO(json_date)
+    if request.method  == 'POST':
+        json_data = request.body
+        stream = io.BytesIO(json_data)
+        python_data = JSONParser().parse(stream)
+        serializer = StudentSerializer(data=python_data)
+        if serializer.is_valid():
+            serializer.save()
+            res = {'msg' : 'Data is Created!'}
+            return JsonResponse(res)
+        else:
+            json_data = JSONRenderer().render(serializer.errors)
+            return HttpResponse(json_data , content_type = 'application/json')
+            

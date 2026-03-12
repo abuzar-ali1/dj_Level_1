@@ -1,7 +1,7 @@
-import request 
+import requests 
 import json
 
-URL = ""
+URL = "http://127.0.0.1:8000/stucreate/"
 
 data = {
     'name' : 'Abuzar Ali',
@@ -13,7 +13,7 @@ data = {
 
 json_data = json.dumps(data)
 
-r = request.post(url = URL , data = json_data)
+r = requests.post(url = URL , data = json_data)
 
 
 

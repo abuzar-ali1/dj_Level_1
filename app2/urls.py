@@ -8,7 +8,8 @@ urlpatterns = [
     path('api/ideas/free/' , views.filtererd_data),
     path('api/ideas/<int:id>/' , views.id_base_data ),
     path('stuinfo/<int:pk>' , views.student_detail ),
-    path('stuinfo/' , views.students)
+    path('stuinfo/' , views.students),
+    path('stucreate/' , views.student_create)
 
     # ... your other urls
 ]
