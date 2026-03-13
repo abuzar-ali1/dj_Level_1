@@ -77,8 +77,9 @@ def get_student(request):
         stream = io.BytesIO(json_data)
         python_data = JSONParser().parse(stream)
         id = python_data.get('id' , None)
+        print(id)
         if id is not None:
-            stu = Student.objects.get(id)
+            stu = Student.objects.get(id=id)
             serializer = StudentSerializer(stu)
             json_data = JSONRenderer().render(serializer.data)
             return HttpResponse(json_data , content_type = 'application/json')    
