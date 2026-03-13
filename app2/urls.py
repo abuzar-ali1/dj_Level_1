@@ -9,7 +9,9 @@ urlpatterns = [
     path('api/ideas/<int:id>/' , views.id_base_data ),
     path('stuinfo/<int:pk>' , views.student_detail ),
     path('stuinfo/' , views.students),
-    path('stucreate/' , views.student_create)
+    path('stucreate/' , views.student_create),
+    path('studentapi/' , views.get_student)
+
 
     # ... your other urls
 ]

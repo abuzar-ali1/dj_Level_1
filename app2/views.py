@@ -69,3 +69,19 @@ def student_create(request):
             json_data = JSONRenderer().render(serializer.errors)
             return HttpResponse(json_data , content_type = 'application/json')
             
+
+
+def get_student(request):
+    if request.method == 'GET':
+        json_data = request.body
+        stream = io.BytesIO(json_data)
+        python_data = JSONParser().parse(stream)
+        id = python_data.get('id' , None)
+        if id is not None:
+            stu = Student.objects.get(id)
+            serializer = StudentSerializer(stu)
+            return JsonResponse(serializer.data) 
+    stu =  Student.objects.all()        
+    serializer = StudentSerializer(stu)
+    return JsonResponse(serializer.data) 
+        
